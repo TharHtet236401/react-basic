@@ -6,7 +6,6 @@ interface Props {
 }
 
 function ListGroup({ items, heading }: Props) {
-
   const [selectedIndex, setSelectedIndex] = useState(-1);
   //items = [];
 
@@ -17,7 +16,6 @@ function ListGroup({ items, heading }: Props) {
         <p>No items found</p>
       </Fragment>
     );
-
 
   return (
     <Fragment>

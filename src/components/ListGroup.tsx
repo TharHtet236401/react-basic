@@ -3,19 +3,12 @@ import { Fragment, MouseEvent, useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   //items = [];
-
-  if (items.length === 0)
-    return (
-      <Fragment>
-        <h1>{heading}</h1>
-        <p>No items found</p>
-      </Fragment>
-    );
 
   return (
     <Fragment>
@@ -30,7 +23,10 @@ function ListGroup({ items, heading }: Props) {
                 : "list-group-item"
             }
             key={item}
-            onClick={() => setSelectedIndex(index)}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(item);
+            }}
           >
             {item}
           </li>

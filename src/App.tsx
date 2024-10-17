@@ -5,6 +5,10 @@ const handleSelectItem = (item: string) => {
   console.log(item);
 };
 
+const clickHere = () => {
+  console.log("Clicked here");
+};
+
 function App() {
   return (
     <div>
@@ -12,6 +16,7 @@ function App() {
         items={items}
         heading="Cities"
         onSelectItem={handleSelectItem}
+        onClickItem={clickHere}
       />
     </div>
   );

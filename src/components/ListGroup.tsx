@@ -4,9 +4,10 @@ interface Props {
   items: string[];
   heading: string;
   onSelectItem: (item: string) => void;
+  onClickItem: () => void;
 }
 
-function ListGroup({ items, heading, onSelectItem }: Props) {
+function ListGroup({ items, heading, onSelectItem, onClickItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   //items = [];
 
@@ -26,6 +27,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
             onClick={() => {
               setSelectedIndex(index);
               onSelectItem(item);
+              onClickItem();
             }}
           >
             {item}
